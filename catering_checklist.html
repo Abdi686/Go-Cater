@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GO RIDE - Catering Shift Verification</title>
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, sans-serif; background: #0f172a; color: #f8fafc; padding: 20px; }
+        .card { background: #1e293b; max-width: 500px; margin: 0 auto; padding: 25px; border-radius: 12px; border: 1px solid #334155; }
+        h2 { color: #38bdf8; margin-top: 0; }
+        .input-group { margin-bottom: 20px; }
+        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+        label { display: block; margin-bottom: 8px; color: #94a3b8; font-weight: bold; font-size: 0.9rem; }
+        input[type="text"], input[type="number"], input[type="date"], input[type="time"], select, textarea { width: 100%; padding: 10px; background: #0f172a; border: 1px solid #334155; border-radius: 6px; color: white; box-sizing: border-box; }
+        select { cursor: pointer; }
+        .check-item { display: flex; align-items: center; background: #111827; padding: 12px; margin-bottom: 10px; border-radius: 8px; border: 1px solid #1f2937; }
+        input[type="checkbox"] { width: 20px; height: 20px; margin-right: 15px; accent-color: #38bdf8; }
+        .btn { background: #0284c7; color: white; border: none; padding: 12px; width: 100%; border-radius: 6px; font-weight: bold; cursor: pointer; font-size: 1rem; margin-top: 15px; }
+        .btn:hover { background: #0369a1; }
+        .section-title { color: #38bdf8; font-size: 1.1rem; margin: 25px 0 10px 0; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h2>GO RIDE Catering</h2>
+        <p style="color:#94a3b8; font-size:0.9rem;">24-Hour Shift Safety & Operational Ledger</p>
+        
+        <!-- AUTOMATED CLOUD FORM SUBMISSION ROUTE -->
+        <form action="https://api.web3forms.com/submit" method="POST">
+            
+            <!-- 🔑 Web3Forms Setup Active Routing Configuration -->
+            <input type="hidden" name="access_key" value="043541cc-1637-4651-9e9b-afb42207424f">
+            <input type="hidden" name="subject" value="New GO RIDE Catering Shift Ledger Submitted">
+            <input type="checkbox" name="botcheck" style="display: none;">
+
+            <div class="input-group">
+                <label for="staffName">Staff Member Name</label>
+                <input type="text" id="staffName" name="staff_member_name" placeholder="Enter your full name" required>
+            </div>
+
+            <div class="grid-2">
+                <div class="input-group">
+                    <label for="logDate">Date</label>
+                    <input type="date" id="logDate" name="log_date" required>
+                </div>
+                <div class="input-group">
+                    <label for="timeStart">Time Start</label>
+                    <input type="time" id="timeStart" name="time_start" required>
+                </div>
+            </div>
+
+            <div class="input-group">
+                <label for="shiftPattern">Select Your Shift (24H Coverage)</label>
+                <select id="shiftPattern" name="shift_pattern" required>
+                    <option value="" disabled selected>-- Choose Shift --</option>
+                    <option value="Morning Shift (06:00 - 14:00)">Morning Shift (06:00 - 14:00) [Opening Checklist]</option>
+                    <option value="Afternoon Shift (14:00 - 22:00)">Afternoon Shift (14:00 - 22:00) [Mid-Day Checklist]</option>
+                    <option value="Night Shift (22:00 - 06:00)">Night Shift (22:00 - 06:00) [Closing Checklist]</option>
+                </select>
+            </div>
+
+            <hr style="border-color: #334155; margin: 25px 0;">
+
+            <div class="section-title">Core Shift Checks</div>
+            <div class="check-item"><input type="checkbox" id="tempCheck" name="check_fridge_temps" value="OK" required> <span>Fridge & Freezer Temps Logged & OK</span></div>
+            <div class="check-item"><input type="checkbox" id="crossContam" name="check_separation" value="OK" required> <span>Raw/Cooked Food Separation Verified</span></div>
+            <div class="check-item"><input type="checkbox" id="hygiene" name="check_handwash_stations" value="OK" required> <span>Handwashing Stations Stocked & Clean</span></div>
+            <div class="check-item"><input type="checkbox" id="waste" name="check_waste_management" value="OK" required> <span>Waste Managed & Bins Emptied</span></div>
+
+            <div class="section-title">Opening & Closing Specifics</div>
+            <div class="check-item"><input type="checkbox" id="openCheck" name="check_opening_proc" value="OK" required> <span>Opening Procedures Met (Equipment on, Prep ready)</span></div>
+            <div class="check-item"><input type="checkbox" id="closeCheck" name="check_closing_proc" value="OK" required> <span>Closing Procedures Met (Deep clean, Lines off, Locked)</span></div>
+            
+            <div class="input-group" style="margin-top:20px;">
+                <label for="cateringNotes">Handover Notes / Discrepancies</label>
+                <textarea id="cateringNotes" name="handover_and_defect_notes" rows="3" placeholder="Note any equipment faults, low stock, or handover items..."></textarea>
+            </div>
+
+            <div class="input-group" style="text-align: center; margin-top: 25px; margin-bottom: 10px;">
+                <label style="margin-bottom: 10px;">Scan to Share/Open This Catering Checklist</label>
+                <div style="background: white; padding: 15px; display: inline-block; border-radius: 12px;">
+                    <!-- 📲 Updated to point directly to your live production URL structure -->
+                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://Abdi686.github.io/Checklist/catering_checklist.html" alt="Catering QR Code">
+                </div>
+            </div>
+            
+            <button type="submit" class="btn">Log Catering Report to Cloud</button>
+        </form>
+    </div>
+
+    <script>
+        // Automatic setup for current local shift verification dates
+        document.getElementById('logDate').valueAsDate = new Date();
+    </script>
+</body>
+</html>
